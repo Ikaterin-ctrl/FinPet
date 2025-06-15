@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  background-color: #fefcfb;
+  color: #333;
+  padding: 1rem;
+}
+
+/* Header */
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  color: #118AB2;
+}
+
+/* Dashboard */
+.dashboard {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+/* Saldo */
+.saldo {
+  background-color: #06D6A0;
+  color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.saldo p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.saldo h2 {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+/* Gráficos */
+.graficos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.grafico-pizza,
+.grafico-barra {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+/* Mascote e mensagem */
+.fortuno {
+  text-align: center;
+  background-color: #FFD166;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fortuno img {
+  width: 80px;
+  height: auto;
+}
+
+.mensagem {
+  font-size: 1rem;
+  max-width: 300px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .graficos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fortuno {
+    flex-direction: column;
+  }
+}

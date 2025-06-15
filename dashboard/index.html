@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinPet - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topo">
+    <img src="/assets/oi_tchau-removebg-preview.png" alt="Logo FinPet" class="logo" />
+    <h1 class="titulo">Olá, Catarina!</h1>
+  </header>
+
+  <main class="dashboard">
+    <section class="saldo">
+      <p>Saldo disponível</p>
+      <h2>R$ 1.250,00</h2>
+    </section>
+
+    <section class="graficos">
+      <div class="grafico-pizza">
+        <h3>Análise de Gastos</h3>
+        <canvas id="graficoGastos"></canvas>
+      </div>
+      <div class="grafico-barra">
+        <h3>Progresso da Meta</h3>
+        <canvas id="graficoMeta"></canvas>
+      </div>
+    </section>
+
+    <section class="fortuno">
+      <img src="/assets/Lupa-removebg-preview.png" alt="Mascote Fortuno" />
+      <p class="mensagem">⚠️ Você gastou 40% com comida... está alimentando a si mesma ou uma tropa de elefantes?</p>
+    </section>
+  </main>
+
+  <script>
+    // Gráfico de Pizza
+    const ctxPizza = document.getElementById('graficoGastos').getContext('2d');
+    new Chart(ctxPizza, {
+      type: 'doughnut',
+      data: {
+        labels: ['Alimentação', 'Lazer', 'Transporte', 'Contas Fixas'],
+        datasets: [{
+          data: [40, 25, 20, 15],
+          backgroundColor: ['#FFD166', '#06D6A0', '#118AB2', '#EF476F'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+
+    // Gráfico de Barra (Meta)
+    const ctxBarra = document.getElementById('graficoMeta').getContext('2d');
+    new Chart(ctxBarra, {
+      type: 'bar',
+      data: {
+        labels: ['Meta'],
+        datasets: [{
+          label: 'Valor guardado',
+          data: [750], // Valor guardado
+          backgroundColor: '#118AB2'
+        }, {
+          label: 'Objetivo final',
+          data: [1000], // Meta final
+          backgroundColor: '#FFD166'
+        }]
+      },
+      options: {
+        responsive: true,
+        indexAxis: 'y',
+        scales: {
+          x: {
+            max: 1000
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
